@@ -22,15 +22,8 @@ public class TestMain {
     // sort back in order
     deck.sort();
     System.out.println(deck);
-
-    //lambda statement
-    deck.sort((card1, card2) -> {
-      int comparison = card1.getRank().compareTo(card2.getRank());
-      if (comparison == 0) {
-        comparison = card1.getSuit().compareTo(card2.getSuit());
-      }
-      return comparison;
-    });
+    //method reference lambda
+    deck.sort(Comparator.comparing(Card::getRank).thenComparing(Card::getSuit));
     System.out.println(deck);
   }
 
