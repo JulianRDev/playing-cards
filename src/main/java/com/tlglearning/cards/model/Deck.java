@@ -2,6 +2,7 @@ package com.tlglearning.cards.model;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
@@ -40,6 +41,15 @@ public class Deck implements Iterable<Card> {
     Collections.shuffle(cards, rng);
   }
 
+  public void sort(){
+    // use null to sort in natural order
+    // invoking the first will trigger the second
+    sort(null);
+  }
+
+  public void sort(Comparator<Card> comparator){
+    cards.sort(comparator);
+  }
   @Override
   public Iterator<Card> iterator() {
     return Collections.unmodifiableList(cards).iterator();
