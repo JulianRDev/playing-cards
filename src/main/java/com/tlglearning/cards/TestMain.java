@@ -23,8 +23,8 @@ public class TestMain {
     deck.sort();
     System.out.println(deck);
 
-    class RankFirstComparator implements Comparator<Card> {
-      //local class in main
+    deck.sort(new Comparator<Card>() {
+      //anonymous class
       @Override
       public int compare(Card card1, Card card2) {
         int comparison = card1.getRank().compareTo(card2.getRank());
@@ -33,9 +33,7 @@ public class TestMain {
         }
         return comparison;
       }
-    }
-
-    deck.sort(new RankFirstComparator());
+    });
     System.out.println(deck);
   }
 
